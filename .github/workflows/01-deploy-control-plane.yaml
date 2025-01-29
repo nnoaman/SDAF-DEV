@@ -18,7 +18,7 @@ on:
         description: "Select the SAP Library to deploy"
         type: choice
         options:
-          - DEVCT-WEEU-SAP_LIBRARY
+          - DEV99-EUS2-SAP_LIBRARY
       use_webapp:
         default: true
         description: Deploy the configuration web application infrastructure
