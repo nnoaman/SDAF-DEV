@@ -17,8 +17,7 @@ on:
       workload_zone:
         description: "Workload zone configuration name, use the following syntax: ENV-LOCA-VNET-INFRASTRUCTURE"
         required: true
-        type: string
-        default: "DVD-WEEU-SAP01-INFRASTRUCTURE"
+        type: environment
       # workload_environment:
       #   description: "Workload environment (DEV, QA, PRD, ...)"
       #   required: true
@@ -41,10 +40,10 @@ permissions:
 jobs:
   deploy_sap_workload_zone:
     name: Deploy SAP Workload Zone
-    environment: ${{ inputs.deployer }}
+    environment: ${{ inputs.workload_zone }}
     runs-on: self-hosted
     container:
-      image: ghcr.io/xpiritbv/azure-sap-automation:github-workflow
+      image: ghcr.io/devanshjainms/sap-automation:experimentalga
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -57,12 +56,12 @@ jobs:
         with:
           application_id: ${{ secrets.APPLICATION_ID }}
           application_private_key: ${{ secrets.APPLICATION_PRIVATE_KEY }}
-          organization: ${{ github.repository_owner }}
+          #organization: ${{ github.repository_owner }}
 
       - name: Azure Login
         uses: Azure/Login@v2
         with:
-          creds: '{"clientId":"${{ secrets.AZURE_CLIENT_ID }}","clientSecret":"${{ secrets.AZURE_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_TENANT_ID }}"}'
+          creds: '{"clientId":"${{ secrets.WL_ARM_CLIENT_ID }}","clientSecret":"${{ secrets.WL_ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.WL_ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.WL_ARM_TENANT_ID }}"}'
 
       - name: Deploy SAP Workload Zone
         run: |
@@ -70,15 +69,15 @@ jobs:
           deploy/automation/02-deploy-sap-workload-zone/01-deploy-sap-workload-zone.sh
         env:
           APP_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
-          CP_ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          CP_ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          CP_ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          CP_ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          WL_ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          WL_ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          WL_ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          WL_ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-          WL_ARM_OBJECT_ID: ${{ secrets.AZURE_OBJECT_ID }}
+          CP_ARM_CLIENT_ID: ${{ secrets.CP_ARM_CLIENT_ID }}
+          CP_ARM_CLIENT_SECRET: ${{ secrets.CP_ARM_CLIENT_SECRET }}
+          CP_ARM_SUBSCRIPTION_ID: ${{ secrets.CP_ARM_SUBSCRIPTION_ID }}
+          CP_ARM_TENANT_ID: ${{ secrets.CP_ARM_TENANT_ID }}
+          WL_ARM_CLIENT_ID: ${{ secrets.WL_ARM_CLIENT_ID }}
+          WL_ARM_CLIENT_SECRET: ${{ secrets.WL_ARM_CLIENT_SECRET }}
+          WL_ARM_SUBSCRIPTION_ID: ${{ secrets.WL_ARM_SUBSCRIPTION_ID }}
+          WL_ARM_TENANT_ID: ${{ secrets.WL_ARM_TENANT_ID }}
+          WL_ARM_OBJECT_ID: ${{ secrets.WL_ARM_OBJECT_ID }}
           TEST_ONLY: ${{ inputs.test }}
           deployerconfig: ${{ inputs.deployer }}.tfvars
           deployerfolder: ${{ inputs.deployer }}
