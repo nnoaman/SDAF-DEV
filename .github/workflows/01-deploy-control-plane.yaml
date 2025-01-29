@@ -18,7 +18,7 @@ on:
         description: "Select the SAP Library to deploy"
         type: choice
         options:
-          - DEV99-EUS2-SAP_LIBRARY
+          - DEVCT-WEEU-SAP_LIBRARY
       use_webapp:
         default: true
         description: Deploy the configuration web application infrastructure
@@ -37,7 +37,7 @@ jobs:
     environment: ${{ inputs.deployer }}
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/xpiritbv/azure-sap-automation:github-workflow
+      image: ghcr.io/devanshjainms/sap-automation:experimentalga
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -79,7 +79,7 @@ jobs:
     needs: setup_deployer
     runs-on: self-hosted
     container:
-      image: ghcr.io/xpiritbv/azure-sap-automation:github-workflow
+      image: ghcr.io/devanshjainms/sap-automation:experimentalga
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -127,7 +127,7 @@ jobs:
     needs: deploy_controlplane
     runs-on: self-hosted
     container:
-      image: ghcr.io/xpiritbv/azure-sap-automation:github-workflow
+      image: ghcr.io/devanshjainms/sap-automation:experimentalga
     steps:
       - name: Azure Login
         uses: Azure/Login@v2
