@@ -396,7 +396,7 @@ storage_account_replication_type = "LRS"
 #########################################################################################
 
 # If defined provides the DNS label for the Virtual Network
-dns_label = "azure.eaus.sdaf.contoso.net"
+dns_label = "azure.sapcontoso.com"
 
 #If defined provides the lsit of DNS servers to attach to the Virtual NEtwork
 #dns_server_list = []
