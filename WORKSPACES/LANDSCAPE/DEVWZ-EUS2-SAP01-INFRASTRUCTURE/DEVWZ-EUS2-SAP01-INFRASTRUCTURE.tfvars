@@ -516,7 +516,7 @@ iscsi_authentication_username = "azureadm"
 iscsi_vm_zones = ["1", "2", "3"]
 
 # user_assigned_identity_id defines the user assigned identity to be assigned to the Virtual machines
-user_assigned_identity_id = "/subscriptions/8d8422a3-a9c1-4fe9-b880-adcf61557c71/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-northeurope"
+#user_assigned_identity_id = "/subscriptions/8d8422a3-a9c1-4fe9-b880-adcf61557c71/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-northeurope"
 
 #########################################################################################
 #                                                                                       #
