@@ -83,7 +83,7 @@ network_address_space = "172.234.0.0/22"
 use_private_endpoint = false
 
 # use_service_endpoint is a boolean flag controlling if the key vaults and storage accounts have service endpoints
-use_service_endpoint = true
+use_service_endpoint = false
 
 #Defines if the SAP VNet will be peered with the control plane VNet
 peer_with_control_plane_vnet = true
