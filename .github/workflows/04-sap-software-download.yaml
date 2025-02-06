@@ -16,6 +16,7 @@ on:
         type: choice
         options:
           - NW750_HANA_v0004ms
+          - S42023SPS00_v0005ms
       deployer:
         description: "Control Plane Environment"
         required: true
