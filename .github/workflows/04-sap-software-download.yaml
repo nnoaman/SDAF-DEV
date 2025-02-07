@@ -42,7 +42,7 @@ jobs:
     environment: ${{ inputs.deployer }}
     runs-on: self-hosted
     container:
-      image: ghcr.io/devanshjainms/sap-automation:experimentalga
+      image: ghcr.io/nnoaman/sap-automation:github_actions
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
       - name: Prepare SAP software download
         run: |
           cd ${SAP_AUTOMATION_REPO_PATH}
-          deploy/automation/04-sap-software-download/01-deploy-sap-workload-zone.sh
+          deploy/automation/04-sap-software-download/04-sap-software-download-prepare.sh
         env:
           APP_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
           bom_base_name: ${{ inputs.bom_base_name }}
