@@ -53,15 +53,13 @@ jobs:
           cd ${SAP_AUTOMATION_REPO_PATH}
           deploy/automation/03-sap-system-deployment/01-sap-system-deployment.sh
         env:
-          APP_TOKEN: "${{ steps.get_workflow_token.outputs.token }}"
-          TEST_ONLY: "${{ inputs.test }}"
-          TF_IN_AUTOMATION: "true"
-          TF_LOG: "${{ secrets.TF_LOG }}"
-          USE_MSI: "${{ secrets.USE_MSI }}"
-          WL_ARM_CLIENT_ID: "${{ secrets.WL_ARM_CLIENT_ID }}"
-          WL_ARM_CLIENT_SECRET: "${{ secrets.WL_ARM_CLIENT_SECRET }}"
-          WL_ARM_SUBSCRIPTION_ID: "${{ secrets.WL_ARM_SUBSCRIPTION_ID }}"
-          WL_ARM_TENANT_ID: "${{ secrets.WL_ARM_TENANT_ID }}"
-          sap_system_configuration: "${{ inputs.sap_system }}.tfvars"
-          sap_system_folder: "${{ inputs.sap_system }}"
-          APP_CONFIGURATION_NAME: "${{ vars.APP_CONFIGURATION_NAME }}"
+          APP_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+          WL_ARM_CLIENT_ID: ${{ secrets.WL_ARM_CLIENT_ID }}
+          WL_ARM_CLIENT_SECRET: ${{ secrets.WL_ARM_CLIENT_SECRET }}
+          WL_ARM_SUBSCRIPTION_ID: ${{ secrets.WL_ARM_SUBSCRIPTION_ID }}
+          WL_ARM_TENANT_ID: ${{ secrets.WL_ARM_TENANT_ID }}
+          WL_ARM_OBJECT_ID: ${{ secrets.WL_ARM_OBJECT_ID }}
+          TEST_ONLY: ${{ inputs.test }}
+          sap_system_configuration: ${{ inputs.sap_system }}.tfvars
+          sap_system_folder: ${{ inputs.sap_system }}
+          APP_CONFIGURATION_NAME: ${{ vars.APP_CONFIGURATION_NAME }}
