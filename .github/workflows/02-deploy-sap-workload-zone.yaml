@@ -43,7 +43,7 @@ jobs:
     environment: ${{ inputs.workload_zone }}
     runs-on: self-hosted
     container:
-      image: ghcr.io/devanshjainms/sap-automation:experimentalga
+      image: ghcr.io/nnoaman/sap-automation:github_actions
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
