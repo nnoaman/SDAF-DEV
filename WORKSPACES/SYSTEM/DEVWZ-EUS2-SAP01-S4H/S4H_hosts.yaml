@@ -1,0 +1,104 @@
+S4H_DB:
+  hosts:
+    s4hdhdb01l0ad:
+      ansible_host        : 10.210.96.4
+      ansible_user        : azureadm
+      ansible_connection  : ssh
+      connection_type     : key
+      virtual_host        : s4hdhdb01l0ad
+      become_user         : root
+      os_type             : linux
+      vm_name             : DEVWZ-EUS2-SAP01-S4H_s4hdhdb01l0ad5
+      
+      
+      
+      
+
+  vars:
+    node_tier             : hana
+    supported_tiers       : [hana]
+
+S4H_SCS:
+  hosts:
+    s4hscs01lad5:
+      ansible_host        : 10.210.32.6
+      ansible_user        : azureadm
+      ansible_connection  : ssh
+      connection_type     : key
+      virtual_host        : s4hscs01lad5
+      become_user         : root
+      os_type             : linux
+      vm_name             : DEVWZ-EUS2-SAP01-S4H_s4hscs01lad5
+      
+      
+      
+      
+
+  vars:
+    node_tier             : scs
+    supported_tiers       : [scs]
+
+S4H_ERS:
+  hosts:
+  vars:
+    node_tier             : ers
+    supported_tiers       : [ers]
+
+
+S4H_PAS:
+  hosts:
+    s4happ01lad5:
+      ansible_host        : 10.210.32.7
+      ansible_user        : azureadm
+      ansible_connection  : ssh
+      connection_type     : key
+      virtual_host        : s4happ01lad5
+      become_user         : root
+      os_type             : linux
+      vm_name             : DEVWZ-EUS2-SAP01-S4H_s4happ01lad5
+      
+      
+      
+      
+
+  vars:
+    node_tier             : pas
+    supported_tiers       : [pas]
+
+S4H_APP:
+  hosts:
+    s4happ02lad5:
+      ansible_host        : 10.210.32.5
+      ansible_user        : azureadm
+      ansible_connection  : ssh
+      connection_type     : key
+      virtual_host        : s4happ02lad5
+      become_user         : root
+      os_type             : linux
+      vm_name             : DEVWZ-EUS2-SAP01-S4H_s4happ02lad5
+      
+      
+      
+      
+
+  vars:
+    node_tier             : app
+    supported_tiers       : [app]
+
+S4H_WEB:
+  hosts:
+  vars:
+    node_tier             : web
+    supported_tiers       : [web]
+
+S4H_OBSERVER_DB:
+  hosts:
+  vars:
+    node_tier             : observer
+    supported_tiers       : [observer]
+
+S4H_ISCSI:
+  hosts:
+  vars:
+    node_tier             : iscsi
+    supported_tiers       : [iscsi]
