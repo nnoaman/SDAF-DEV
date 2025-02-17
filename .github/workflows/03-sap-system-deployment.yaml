@@ -8,6 +8,10 @@ on:
         required: true
         default: "DEV-WEEU-SAP01-X00"
         type: string
+      deployer:
+        description: "Deployer configuration name, use the following syntax: ENV-LOCA-VNET-INFRASTRUCTURE"
+        required: true
+        type: environment
       workload_zone:
         description: "Workload Environment ...)"
         required: true
@@ -62,4 +66,5 @@ jobs:
           TEST_ONLY: ${{ inputs.test }}
           SAP_SYSTEM_TFVARS_FILENAME: ${{ inputs.sap_system }}.tfvars
           SAP_SYSTEM_FOLDERNAME: ${{ inputs.sap_system }}
+          DEPLOYER_FOLDER: ${{ inputs.deployer }}
           APP_CONFIGURATION_NAME: ${{ vars.APP_CONFIGURATION_NAME }}
