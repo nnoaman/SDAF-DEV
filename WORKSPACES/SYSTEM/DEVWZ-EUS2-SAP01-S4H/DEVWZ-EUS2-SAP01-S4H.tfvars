@@ -474,12 +474,12 @@ deploy_application_security_groups = true
 deploy_v1_monitoring_extension = true
 
 # If defined, will add the Microsoft.Azure.Monitor.AzureMonitorLinuxAgent extension to the virtual machines
-deploy_monitoring_extension = true
+#deploy_monitoring_extension = true
 
 # If defined, will add the Microsoft.Azure.Security.Monitoring extension to the virtual machines
-deploy_defender_extension = true
+#deploy_defender_extension = true
 
-enable_sap_cal = true
+#enable_sap_cal = true
 
 #########################################################################################
 #                                                                                       #
@@ -491,7 +491,7 @@ enable_sap_cal = true
 # AFS indicates that Azure Files for NFS is used
 # ANF indicates that Azure NetApp Files is used
 # NFS indicates that a custom solution is used for NFS
-NFS_provider = "AFS"
+NFS_provider = "NONE"
 # sapmnt_volume_size defines the size of the sapmnt volume in GB
 sapmnt_volume_size = 128
 
